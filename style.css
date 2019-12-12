@@ -28,3 +28,60 @@ div {
   text-shadow: 0px 0px 4px black;
   text-indent: 3px;
 }
+
+div:nth-child(odd),
+div:nth-child(3n) {
+  transition: transform 0.5s, width 0.5s, height 0.5s, scale 0.5s, opacity 0.5s;
+}
+
+div:nth-child(1):hover {
+  will-change: transform;
+}
+
+main {
+  transition: flex-basis 0.6s;
+}
+
+@media (min-width: 800px) and (max-width: 1280px) {
+  div:nth-child(odd) {
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+  }
+}
+
+@media (min-width: 400px) and (max-width: 800px) {
+  div:nth-child(odd) {
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+  }
+  div:nth-child(3n) {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+}
+
+@media (max-width: 400px) {
+  main {
+    flex-basis: 240px;
+  }
+  div {
+    display: block;
+    float: left;
+  }
+
+  div:nth-child(odd) {
+    width: 50px;
+    height: 50px;
+    transform: rotate(45deg);
+  }
+  div:nth-child(3n) {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+
+  div:nth-child(1):hover {
+    transform: translateX(-200px);
+  }
+}
